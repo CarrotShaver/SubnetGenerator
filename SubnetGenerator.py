@@ -150,7 +150,7 @@ while True:
                 if networkInput >= 0 and networkInput <= 64:
                     break
                 else:
-                    print("Number of networks should be between 0 and 64")
+                    print("Error: Number of networks should be between 0 and 64!")
             except ValueError:
                 print("Error: Input should be an integer!")
 
