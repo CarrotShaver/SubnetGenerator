@@ -73,15 +73,15 @@ def getRangeList(numHosts, numNetworks):
 def printAvailableNetworks(IPstring, rangeList, numHosts, networkFlag):
     startList = 0
 
-    print("{:10s} {:20s} {:20s} {:20s}".format("Network:", "Network ID:", "Range:", "Broadcast:"))
+    print("{:10s} {:20s} {:15s} {:20s}".format("Network:", "Network ID:", "Range:", "Broadcast:"))
     if networkFlag == 0:
         startList = 1
         print("{:10s} {:20s}".format("1", "Main Network omitted"))
     for x in range(startList, len(rangeList)):
-        print("{:10s} {:20s} {:20s} {:20s}".format( str(x+1), IPstring+str(rangeList[x]), str(rangeList[x]+1)+" - "+ str((rangeList[x]+numHosts-2)), IPstring+str((rangeList[x]+numHosts-1))))
+        print("{:10s} {:20s} {:15s} {:20s}".format( str(x+1), IPstring+str(rangeList[x]), str(rangeList[x]+1)+" - "+ str((rangeList[x]+numHosts-2)), IPstring+str((rangeList[x]+numHosts-1))))
 
 # Function: getSubnetMask
-# This function calculates the subnet mask using the CIDR, therefore getCIDR must be called before this function
+# This function calculates the subnet mask using the CIDR, therefore the CIDR must be defined before using this function
 # Returns as an int
 def getSubnetMask(CIDR):
     CIDR = CIDR-24
@@ -125,8 +125,7 @@ def formatCIDRinput(CIDRinput):
         return -1
 
 while True:
-
-    print("\n"*2)
+    print("\n")
     print("Choose your operation using the numbered selection below: ")
     print("1 : Get network information by inputting network IP and number of networks needed")
     print("2 : Get network information by inputting network IP and subnet mask")
@@ -135,8 +134,12 @@ while True:
     print("5 : Exit")
     try:
         choice = int(input())
-    except:
+        if choice < 1 or choice > 5:
+            print("Error: input must be an int between 1 and 5!")
+            continue
+    except ValueError:
         print("Error: input must be an int between 1 and 5!")
+        continue
     if choice == 1:
         print("Input the network IP address (ex. 192.168.0.1)")
         IPinput = input()
