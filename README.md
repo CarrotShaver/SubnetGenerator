@@ -1,9 +1,12 @@
 # SubnetGenerator
-- This tool allows a user to grab information when using or creating a subnet using subnet/IP information
+- This python script tool allows a user to grab information when using or creating a subnet using subnet/IP information
 - Information:
     - Number of Networks
     - Number of Hosts allowed per network
     - Network ID, Range, and Broadcast address for each network
+
+
+(Link to code on github)[https://github.com/CarrotShaver/SubnetGenerator/blob/master/SubnetGenerator.py]
 
 **Sample Output**
 ```
